@@ -1,18 +1,32 @@
 import React from 'react'
 
-export class HomeRoute extends React.Component {
-  render () {
-    return (
-      <div>
-        <div className="card-profile--container">
-          <div className="card card-profile">
-            <img className="profile-avatar" src="https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5MjEwODI2/eminem_photo_by_dave_j_hogan_getty_images_entertainment_getty_187596325.jpg" />
-            <div className="profile-name">Ti Teller</div>
-            <div className="profile-desc">Wtf</div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+interface HomeProps {
+  avatar?: string
+  name?: string
+  description?: string
 }
 
+const HomeRoute: React.SFC<HomeProps> = ({ avatar, name, description }) => {
+  return (
+    <div>
+      <div className="card-profile--container">
+        <div className="card card-profile">
+          <div className="profile-avatar background--main">
+            <img alt="me" className="profile-avatar--img" src={avatar} />
+          </div>
+          <div className="profile-name">{name}</div>
+          <div className="profile-desc">{description}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+HomeRoute.defaultProps = {
+  avatar:
+    'https://media.licdn.com/dms/image/C5603AQHD1fF5r8FSxQ/profile-displayphoto-shrink_200_200/0?e=1544659200&v=beta&t=JaNeMx7VxRAB5DYhxs---brcpvufe0FkM-78JQ3g8j8',
+  name: 'Ti Teller',
+  description: 'The man who falling love Javascript.'
+}
+
+export default HomeRoute

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter, Switch, Route, Link } from 'react-router-dom'
-import { HomeRoute } from './HomeRoute';
+import HomeRoute from './HomeRoute';
 
 const element = (
   <HashRouter>
